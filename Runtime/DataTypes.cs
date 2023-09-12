@@ -146,7 +146,7 @@ namespace OpenAI
         public string Role { get; set; }
         public string Content { get; set; }
 
-        public FunctionCall FunctionCall { get; set; } // Custom Added!
+        public FunctionCall? FunctionCall { get; set; } // Custom Added!
     }
     
     public struct FunctionCall
