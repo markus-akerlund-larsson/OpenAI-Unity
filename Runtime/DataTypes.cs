@@ -119,7 +119,7 @@ namespace OpenAI
 
     public class Parameters
     {
-        public string Type { get; set; } = "object"
+        public string Type { get; set; } = "object";
         public Dictionary<string, Property> Properties { get; set; }
         public List<string> Required { get; set; }
     }
