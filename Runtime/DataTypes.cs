@@ -86,7 +86,7 @@ namespace OpenAI
         public string Model { get; set; }
         public List<ChatMessage> Messages { get; set; }
         public List<OpenAIFunction>? Functions { get; set; } // Added
-		public string FunctionCall { get; set; } = "auto";
+		public string? FunctionCall { get; set; }
         public float? Temperature { get; set; } = 1;
         public int N { get; set; } = 1;
         public bool Stream { get; set; } = false;
