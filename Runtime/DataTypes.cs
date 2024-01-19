@@ -85,7 +85,7 @@ namespace OpenAI
     {
         public string Model { get; set; }
         public List<ChatMessage> Messages { get; set; }
-        public List<OpenAIFunction>? Functions { get; set; } // Added
+        public List<FunctionDescription>? Functions { get; set; } // Added
 		public string? FunctionCall { get; set; }
         public float? Temperature { get; set; } = 1;
         public int N { get; set; } = 1;
@@ -108,10 +108,11 @@ namespace OpenAI
         public long Created { get; set; }
         public List<ChatChoice> Choices { get; set; }
         public Usage Usage { get; set; }
+        public string SystemFingerprint { get; set; }
     }
 
     // === Added classes !! ====================================================
-    public class OpenAIFunction
+    public class FunctionDescription
     {
         public string Name { get; set; }
         public string Description { get; set; }
@@ -139,19 +140,21 @@ namespace OpenAI
         public ChatMessage Delta { get; set; }
         public int? Index { get; set; }
         public string FinishReason { get; set; }
+
+        public bool Logprobs { get; set; }
     }
 
     public struct ChatMessage
     {
         public string Role { get; set; }
+        public string? Name { get; set; }
         public string Content { get; set; }
-
         public FunctionCall? FunctionCall { get; set; } // Custom Added!
     }
     
     public struct FunctionCall
     {
-        public Dictionary<string, string> Arguments;
+        public string Arguments { get; set; }
         public string Name { get; set; }
     }
     
